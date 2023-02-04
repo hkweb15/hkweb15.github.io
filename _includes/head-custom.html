@@ -6,42 +6,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-N9XP8LX');</script>
 <!-- End Google Tag Manager -->
 
-<script>/*
-function sendReadEvent(title, numberOfCharacters, author) {
-    gtag('event', 'read_article', {
-        "author": author,
-        "title": title,
-        "number_of_characters": numberOfCharacters,
+<script>
+ // Get all buttons
+  var buttons = document.querySelectorAll(".read-article");
+
+  // Loop through buttons
+  for (var i = 0; i < buttons.length; i++) {
+
+    // Get article name
+    var articleName = buttons[i].getAttribute("data-article-name");
+
+    // Event listner for button click
+    buttons[i].addEventListener("click", function() {
+      // Start timer
+      var startTime = new Date();
+
+      // Stop timer
+      var stopTime = new Date();
+      var readingTime = (stopTime - startTime) / 1000 / 60;  // convert to minutes
+
+      // Send event with reading time
+      gtag('event', 'artikel', {
+        'event_category': 'Article',
+        'artikelnamn': articleName,
+        'read_time': readingTime
+      });
     });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const readArticle1Button = document.getElementById("read-article-1");
-
-    if (readArticle1Button) {
-        // Skickar event vid klick på artikel 1
-        readArticle1Button.addEventListener("click", () => {
-            sendReadEvent("Article 1", 50, "Linus R")
-        });
-
-        // Skickar event vid klick på artikel 2
-        document.getElementById("read-article-2").addEventListener("click", () => {
-            sendReadEvent("Article 2", 100, "Anna S")
-        });
-
-        // Skickar event vid klick på artikel 3
-        document.getElementById("read-article-3").addEventListener("click", () => {
-            sendReadEvent("Article 3", 150, "Maria S")
-        });
-    }
-
-});*/
-  
- console.log("2023-01-30 1430")
+  }
 
 </script>
-
-
-
-
