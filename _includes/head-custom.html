@@ -7,18 +7,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 <script>
-  var readArticleButton = document.querySelector(".read-article");
+ // Get all buttons
+  var buttons = document.querySelectorAll(".read-article");
 
-  readArticleButton.addEventListener("click", function() {
-    var articleName = this.getAttribute("data-article-name");
+  // Loop through buttons
+  for (var i = 0; i < buttons.length; i++) {
 
-    // Send event with article name
-    dataLayer.push({
-      'event': 'read-article',
-      'articleName': articleName
+    // Get article name
+    var articleName = buttons[i].getAttribute("data-article-name");
+
+    // Event listner for button click
+    buttons[i].addEventListener("click", function() {
+      // Start timer
+      var startTime = new Date();
+
+      // Stop timer
+      var stopTime = new Date();
+      var readingTime = (stopTime - startTime) / 1000 / 60;  // convert to minutes
+
+      // Send event with reading time
+      gtag('event', 'artikel', {
+        'event_category': 'Article',
+        'artikelnamn': articleName,
+        'read_time': readingTime
+      });
     });
-  });
+  }
+
 </script>
+
 
 
 
