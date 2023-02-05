@@ -15,3 +15,33 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 <button class="read-article" data-article-name="Article 3">Read Article 3</button>
+
+
+<script>
+ // Get all buttons
+  var buttons = document.querySelectorAll(".read-article");
+ /* var pageLoadTime = new Date(); */
+
+  // Loop through buttons
+  for (var i = 0; i < buttons.length; i++) {
+
+    // Get article name
+    var articleName = buttons[i].getAttribute("data-article-name");
+
+    // Event listner for button click
+    buttons[i].addEventListener("click", function() {
+      /* var clickTime = new Date();
+      var readingTime = (clickTime - pageLoadTime) / 1000 / 60;  // convert to minutes */
+
+      // Push values to the data layer
+      dataLayer.push({
+        'event': 'artikel',
+        'eventCategory': 'Article',
+        'articleName': articleName,
+        /* 'readingTime': readingTime */
+      });
+     console.log(dataLayer);
+    });
+  }
+  
+</script>
