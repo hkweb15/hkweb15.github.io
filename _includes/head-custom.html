@@ -9,7 +9,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script>
  // Get all buttons
   var buttons = document.querySelectorAll(".read-article");
-  var pageLoadTime = new Date();
+ /* var pageLoadTime = new Date(); */
 
   // Loop through buttons
   for (var i = 0; i < buttons.length; i++) {
@@ -19,8 +19,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     // Event listner for button click
     buttons[i].addEventListener("click", function() {
-      var clickTime = new Date();
-      var readingTime = (clickTime - pageLoadTime) / 1000 / 60;  // convert to minutes
+      /* var clickTime = new Date();
+      var readingTime = (clickTime - pageLoadTime) / 1000 / 60;  // convert to minutes */
 
       // Push values to the data layer
       dataLayer.push({
