@@ -36,9 +36,9 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
            // Push values to the data layer
            dataLayer.push({
              'event': 'artikel',
-             'eventCategory': 'Article',
-             'articleName': articleName,
-              'readingTime': readingTime 
+             'eventCategory': 'lasta_artiklar',
+             'artikelnamn': articleName,
+             'lastid': readingTime 
            });
           console.log(dataLayer);
          });
