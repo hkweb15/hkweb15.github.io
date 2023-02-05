@@ -7,7 +7,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 <script>
- // Get all buttons
+  // Get all buttons
   var buttons = document.querySelectorAll(".read-article");
 
   // Loop through buttons
@@ -16,22 +16,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     // Get article name
     var articleName = buttons[i].getAttribute("data-article-name");
 
-    // Event listner for button click
+    // Event listener for button click
     buttons[i].addEventListener("click", function() {
       // Start timer
       var startTime = new Date();
 
-      // Stop timer
-      var stopTime = new Date();
-      var readingTime = (stopTime - startTime) / 1000 / 60;  // convert to minutes
+      // Wait for article to be read
+      setTimeout(function() {
+        // Stop timer
+        var stopTime = new Date();
+        var readingTime = (stopTime - startTime) / 1000 / 60;  // convert to minutes
 
-      // Push values to the data layer
-      dataLayer.push({
-        'event': 'artikel',
-        'eventCategory': 'Article',
-        'articleName': articleName,
-        'readingTime': readingTime
-      });
+        // Push values to the data layer
+        dataLayer.push({
+          'event': 'artikel',
+          'eventCategory': 'Article',
+          'articleName': articleName,
+          'readingTime': readingTime
+        });
+      }, 5000); // Wait for 5 seconds
     });
   }
 
