@@ -19,29 +19,26 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 <script>
       // Get all buttons
-       var buttons = document.querySelectorAll(".read-article");
-       var pageLoadTime = new Date(); 
-     
-       // Loop through buttons
-       for (var i = 0; i < buttons.length; i++) {
-     
-         // Get article name
-         var articleName = buttons[i].getAttribute("data-article-name");
-     
-         // Event listner for button click
-         buttons[i].addEventListener("click", function() {
-            var clickTime = new Date();
-           var readingTime = (clickTime - pageLoadTime) / 1000 / 60;  // convert to minutes 
-     
-           // Push values to the data layer
-           dataLayer.push({
-             'event': 'artikel',
-             'eventCategory': 'lasta_artiklar',
-             'artikelnamn': articleName,
-             'lastid': readingTime 
-           });
-          console.log(dataLayer);
-         });
-       }
-     
-     </script>
+      var buttons = document.querySelectorAll(".read-article");
+        var pageLoadTime = new Date(); 
+
+    for (var i = 0; i < buttons.length; i++) {
+       var articleName = buttons[i].getAttribute("data-article-name");
+
+     buttons[i].addEventListener("click", (function(articleName) {
+     return function() {
+        var clickTime = new Date();
+        var readingTime = (clickTime - pageLoadTime) / 1000 / 60;  // convert to minutes 
+
+       // Push values to the data layer
+        dataLayer.push({
+        'event': 'artikel',
+        'eventCategory': 'lasta_artiklar',
+        'artikelnamn': articleName,
+        'lastid': readingTime 
+       });
+        console.log(dataLayer);
+      };
+    })(articleName));
+  }
+</script>
