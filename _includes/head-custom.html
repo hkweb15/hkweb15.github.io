@@ -6,31 +6,4 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-N9XP8LX');</script>
 <!-- End Google Tag Manager -->
 
-<script>
- // Get all buttons
-  var buttons = document.querySelectorAll(".read-article");
- /* var pageLoadTime = new Date(); */
 
-  // Loop through buttons
-  for (var i = 0; i < buttons.length; i++) {
-
-    // Get article name
-    var articleName = buttons[i].getAttribute("data-article-name");
-
-    // Event listner for button click
-    buttons[i].addEventListener("click", function() {
-      /* var clickTime = new Date();
-      var readingTime = (clickTime - pageLoadTime) / 1000 / 60;  // convert to minutes */
-
-      // Push values to the data layer
-      dataLayer.push({
-        'event': 'artikel',
-        'eventCategory': 'Article',
-        'articleName': articleName,
-        /* 'readingTime': readingTime */
-      });
-     console.log(dataLayer);
-    });
-  }
-
-</script>
